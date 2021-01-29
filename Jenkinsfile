@@ -17,13 +17,11 @@ pipeline {
     stage('Fluffy Build') {
       steps {
         echo 'placeholder'
-        bat 'echo another placeholder'
       }
     }
 
     stage('Fluffy Test') {
       steps {
-        pwsh 'sleep 5'
         bat 'echo success'
       }
     }

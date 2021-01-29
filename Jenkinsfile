@@ -21,5 +21,18 @@ pipeline {
       }
     }
 
+    stage('Fluffy Test') {
+      steps {
+        bat 'sleep 5'
+        bat 'echo success'
+      }
+    }
+
+    stage('Fluffy Deploy') {
+      steps {
+        echo 'placeholder'
+      }
+    }
+
   }
 }

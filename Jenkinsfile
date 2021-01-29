@@ -17,7 +17,7 @@ pipeline {
     stage('Fluffy Build') {
       steps {
         echo 'placeholder'
-        bat 'sh echo Another Placeholder'
+        bat 'echo another placeholder'
       }
     }
 

@@ -14,5 +14,11 @@ pipeline {
       }
     }
 
+    stage('Fluffy Build ') {
+      steps {
+        echo 'Placeholder'
+      }
+    }
+
   }
 }

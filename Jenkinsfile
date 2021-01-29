@@ -23,7 +23,7 @@ pipeline {
 
     stage('Fluffy Test') {
       steps {
-        bat 'sleep 5'
+        pwsh 'sleep 5'
         bat 'echo success'
       }
     }

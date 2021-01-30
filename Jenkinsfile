@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Buzz Build') {
       steps {
-        pwsh 'echo $BUZZ_NAME'
+        pwsh '$BUZZ_NAME '
         pwsh './jenkins/build.sh'
         archiveArtifacts(artifacts: '*', fingerprint: true)
       }

@@ -1,36 +1,33 @@
 pipeline {
   agent any
   stages {
-    stage('Buzz Buzz') {
+    stage('Buzz Build') {
       steps {
-        echo 'buzz buzzz'
+        pwsh '$BUZZ_NAME '
+        pwsh './jenkins/build.sh'
+        archiveArtifacts(artifacts: '*', fingerprint: true)
       }
     }
 
-    stage('Bees Bees') {
-      steps {
-        echo 'BEEs beez'
-        echo 'beess buzzing'
+    stage('Testing A') {
+      parallel {
+        stage('Buzz Test') {
+          steps {
+            pwsh './jenkins/test-all.sh'
+          }
+        }
+
+        stage('Testing B') {
+          steps {
+            powershell 'sleep 5; echo \'done a\''
+          }
+        }
+
       }
     }
 
-    stage('Fluffy Build') {
-      steps {
-        echo 'placeholder'
-      }
-    }
-
-    stage('Fluffy Test') {
-      steps {
-        bat 'echo success'
-      }
-    }
-
-    stage('Fluffy Deploy') {
-      steps {
-        echo 'placeholder'
-      }
-    }
-
+  }
+  environment {
+    BUZZ_NAME = 'Worker Bee'
   }
 }

@@ -5,6 +5,7 @@ pipeline {
       steps {
         pwsh './jenkins/build.sh'
         archiveArtifacts(artifacts: '*', fingerprint: true)
+        pwsh 'echo "I am a ${BUZZ_NAME}"'
       }
     }
 
@@ -14,5 +15,8 @@ pipeline {
       }
     }
 
+  }
+  environment {
+    BUZZ_NAME = 'Worker Bee'
   }
 }

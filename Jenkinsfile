@@ -4,7 +4,7 @@ pipeline {
     stage('Buzz Build') {
       steps {
         pwsh './jenkins/build.sh'
-        archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
+        archiveArtifacts(artifacts: 'target/*.*jar', fingerprint: true)
       }
     }
 

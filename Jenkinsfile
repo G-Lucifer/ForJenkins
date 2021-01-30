@@ -10,8 +10,37 @@ pipeline {
     }
 
     stage('Fluffy Test') {
-      steps {
-        pwsh './jenkins/test-all.sh'
+      parallel {
+        stage('Fluffy Test') {
+          steps {
+            pwsh './jenkins/test-all.sh'
+          }
+        }
+
+        stage('Backend') {
+          steps {
+            pwsh './jenkins/test-backend.sh'
+          }
+        }
+
+        stage('frontend') {
+          steps {
+            pwsh './jenkins/test-frontend.sh'
+          }
+        }
+
+        stage('performance') {
+          steps {
+            pwsh './jenkins/test-performance.sh'
+          }
+        }
+
+        stage('static') {
+          steps {
+            pwsh './jenkins/test-static.sh'
+          }
+        }
+
       }
     }
 

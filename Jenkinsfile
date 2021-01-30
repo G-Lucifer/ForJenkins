@@ -19,7 +19,7 @@ pipeline {
 
         stage('Testing B') {
           steps {
-            powershell 'sleep 5; echo done'
+            powershell 'sleep 5; echo \'done a\''
           }
         }
 

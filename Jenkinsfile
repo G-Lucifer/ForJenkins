@@ -9,25 +9,17 @@ pipeline {
       }
     }
 
-    stage('Testing A') {
-      parallel {
-        stage('Buzz Test') {
-          steps {
-            pwsh './jenkins/test-all.sh'
-          }
-        }
-
-        stage('Testing B') {
-          steps {
-            powershell 'sleep 5; echo \'done a\''
-          }
-        }
-
+    stage('Fluffy Test') {
+      steps {
+        pwsh './jenkins/test-all.sh'
       }
     }
 
-  }
-  environment {
-    BUZZ_NAME = 'Worker Bee'
+    stage('Fluffy Deploy') {
+      steps {
+        pwsh './jenkins/deploy.sh staging'
+      }
+    }
+
   }
 }

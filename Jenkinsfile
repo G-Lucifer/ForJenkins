@@ -7,30 +7,5 @@ pipeline {
       }
     }
 
-    stage('Bees Bees') {
-      steps {
-        echo 'BEEs beez'
-        echo 'beess buzzing'
-      }
-    }
-
-    stage('Fluffy Build') {
-      steps {
-        echo 'placeholder'
-      }
-    }
-
-    stage('Fluffy Test') {
-      steps {
-        bat 'echo success'
-      }
-    }
-
-    stage('Fluffy Deploy') {
-      steps {
-        echo 'placeholder'
-      }
-    }
-
   }
 }

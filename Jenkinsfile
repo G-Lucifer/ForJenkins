@@ -3,8 +3,7 @@ pipeline {
   stages {
     stage('Buzz Build') {
       steps {
-        sh '''#!/bin/bash
-./jenkins/build.sh'''
+        bat './jenkins/build.sh'
       }
     }
 

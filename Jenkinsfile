@@ -11,7 +11,6 @@ pipeline {
     stage('Buzz Test') {
       steps {
         pwsh './jenkins/test-all.sh'
-        junit '**/simple-pipeline/**/*.xml'
       }
     }
 

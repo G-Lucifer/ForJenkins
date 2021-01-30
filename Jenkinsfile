@@ -9,9 +9,20 @@ pipeline {
       }
     }
 
-    stage('Buzz Test') {
-      steps {
-        pwsh './jenkins/test-all.sh'
+    stage('Testing A') {
+      parallel {
+        stage('Buzz Test') {
+          steps {
+            pwsh './jenkins/test-all.sh'
+          }
+        }
+
+        stage('Testing B') {
+          steps {
+            powershell 'sleep 5; echo done'
+          }
+        }
+
       }
     }
 
